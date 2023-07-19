@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import type { TestimonialVideo } from "../lib/contenful";
+import type { Entry, EntrySkeletonType } from "contentful";
 
-type Video = {
-  id: string;
-  thumbnail: string;
-  title: string;
-  description: string;
-};
 type Props = {
-  items: Video[];
+  items: Entry<EntrySkeletonType, undefined, string>[];
 };
-
 const STATES = {
   ACTIVE: "active",
   INACTIVE: "inactive",
@@ -21,9 +16,16 @@ const transitioningIndex = ref<{ opening: number; closing: number } | null>(
 const activeVideo = ref(0);
 const focused = ref<number | null>(null);
 const playVideo = ref(false);
-const videoIframe = ref<HTMLIFrameElement[] | null>(null);
+const videoTag = ref<HTMLVideoElement[] | null>(null);
 
 const onClick = (index: number, activeIndex: number) => {
+  if (index === activeIndex && playVideo.value) {
+    const currentVideo = videoTag.value?.[index];
+    if (currentVideo) {
+      currentVideo.pause();
+    }
+    return;
+  }
   transitioningIndex.value = {
     opening: index,
     closing: activeIndex,
@@ -32,7 +34,23 @@ const onClick = (index: number, activeIndex: number) => {
     activeVideo.value = index;
     transitioningIndex.value = null;
     playVideo.value = true;
+    const currentVideo = videoTag.value?.[index];
+    if (currentVideo) {
+      currentVideo.play();
+      currentVideo.muted = false;
+      currentVideo.focus();
+    }
   }, 300);
+};
+
+const onKeydown = (event: KeyboardEvent) => {
+  if (event.code === "Escape") {
+    playVideo.value = false;
+    const currentVideo = videoTag.value?.[activeVideo.value];
+    if (currentVideo) {
+      currentVideo.currentTime = 0;
+    }
+  }
 };
 
 const getClass = (index: number) => {
@@ -47,7 +65,6 @@ const getClass = (index: number) => {
   }
   return STATES.INACTIVE;
 };
-
 const props = defineProps<Props>();
 </script>
 
@@ -67,33 +84,31 @@ const props = defineProps<Props>();
           type="button"
           @focusin="focused = index"
           @focusout="focused = index"
+          @keydown="(event) => onKeydown(event)"
         >
           <img
             tabindex="-1"
-            :src="item.thumbnail"
-            :alt="`Iniciar vídeo ${item.title}`"
+            :src="((item.fields as TestimonialVideo).thumbnail.fields.file?.url as string)"
+            :alt="`Iniciar vídeo ${(item.fields as TestimonialVideo).title}`"
           />
         </button>
-
-        <iframe
-          ref="videoIframe"
-          :tabindex="playVideo && activeVideo === index ? '0' : '-1'"
-          :aria-label="item.description"
-          :id="item.id"
-          :src="`https://www.youtube.com/embed/${item.id}?autoplay=${
-            playVideo && activeVideo === index ? '1' : '0'
-          }&mute=0&loop=0&showinfo=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&playlist=${
-            item.id
-          }`"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        ></iframe>
+        <video
+          :aria-label="(item.fields as TestimonialVideo).description"
+          :class="activeVideo === index && playVideo ? 'playing' : 'idle'"
+          ref="videoTag"
+        >
+          <source
+            :src="((item.fields as TestimonialVideo).video.fields.file?.url as string)"
+            :type="((item.fields as TestimonialVideo).video.fields.file?.contentType as string)"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </template>
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -114,6 +129,7 @@ section {
   display: flex;
   gap: 16px;
 }
+
 button {
   position: absolute;
   appearance: none;
@@ -124,58 +140,49 @@ button {
   height: 100%;
   width: 100%;
   cursor: pointer;
-}
 
-button.playing {
-  z-index: -1;
-}
+  &:focus {
+    outline: 1px solid #5748cf;
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
 
-button.idle::before {
-  content: "";
-  display: block;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background-color: #d9d9d9;
-  border-radius: 50%;
-}
+  &.playing {
+    z-index: -1;
+  }
 
-button.idle::after {
-  content: url("/play-icon.svg");
-  display: block;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -40%);
-}
-
-button.idle:hover::after {
-  animation: fadeInFull 300ms ease-in forwards;
-}
-button.idle:hover::before {
-  animation: fadeIn 300ms ease-in-out forwards;
-}
-
-.item.inactive {
-  width: 90px;
-  filter: grayscale();
-}
-
-.item.inactive:hover,
-.item.inactive.focused {
-  width: 150px;
-  filter: none;
-}
-
-button:focus {
-  outline: 1px solid #5748cf;
-  outline-offset: 4px;
-  border-radius: 10px;
+  &.idle {
+    &::before {
+      content: "";
+      display: block;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background-color: #d9d9d9;
+      border-radius: 50%;
+    }
+    &::after {
+      content: url("/play-icon.svg");
+      display: block;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -40%);
+    }
+    &:hover {
+      &::after {
+        animation: fadeInFull 300ms ease-in forwards;
+      }
+      &::before {
+        animation: fadeIn 300ms ease-in-out forwards;
+      }
+    }
+  }
 }
 
 .item {
@@ -183,16 +190,34 @@ button:focus {
   width: 286px;
   height: 508px;
   transition: width 300ms ease-in-out, filter 300ms ease-in-out;
+  &.inactive {
+    width: 90px;
+    filter: grayscale(95%);
+
+    &:hover,
+    &.focused {
+      width: 150px;
+      filter: none;
+    }
+  }
 }
+
 img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
-iframe {
-  width: 100%;
+
+video {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
   border-radius: 10px;
+  transition: width 300ms ease-in-out, filter 300ms ease-in-out;
+
+  &.idle {
+    visibility: hidden;
+  }
 }
 </style>

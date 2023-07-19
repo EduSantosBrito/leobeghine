@@ -1,4 +1,11 @@
-import contentful from "contentful";
+import contentful, { Asset } from "contentful";
+
+export type TestimonialVideo = {
+  title: string;
+  description: string;
+  thumbnail: Asset;
+  video: Asset;
+};
 
 export const contentfulClient = contentful.createClient({
   space: import.meta.env.CONTENTFUL_SPACE_ID,

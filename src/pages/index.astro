@@ -1,54 +1,12 @@
 ---
 import VideoSlider from "../components/VideoSlider.vue";
+import MaskImage from "../components/MaskImage.vue";
 import Layout from "../layouts/Layout.astro";
+import { contentfulClient } from "../lib/contenful";
+
+const entries = await contentfulClient.getEntries({
+  content_type: "testimonialVideo",
+});
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <VideoSlider
-      client:visible
-      items={[
-        {
-          thumbnail:
-            "https://i.ytimg.com/vi/eCS8lzxw92s/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAeFZWnGL5xJwPe-XhKozAucUXI8A",
-          id: "eCS8lzxw92s",
-          description:
-            "Vídeo contendo o depoimento do aluno Joãozinho, explicando o quanto que o professor Leo ajudou no desenvolvimento do inglês",
-          title: "Depoimento do aluno Joãozinho",
-        },
-        {
-          thumbnail:
-            "https://i.ytimg.com/vi/ZbhcFLqt5wI/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAeFZWnGL5xJwPe-XhKozAucUXI8A",
-          id: "ZbhcFLqt5wI",
-          description:
-            "Vídeo contendo o depoimento do aluno Juquinha, explicando o quanto que o professor Leo ajudou no desenvolvimento do inglês",
-          title: "Depoimento do aluno Juquinha",
-        },
-        {
-          thumbnail:
-            "https://i.ytimg.com/vi/VC8ptOxySVA/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAeFZWnGL5xJwPe-XhKozAucUXI8A",
-          id: "VC8ptOxySVA",
-          description:
-            "Vídeo contendo o depoimento do aluno Adolfo, explicando o quanto que o professor Leo ajudou no desenvolvimento do inglês",
-          title: "Depoimento do aluno Adolfo",
-        },
-        {
-          thumbnail:
-            "https://i.ytimg.com/vi/krLT4WnqKNM/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAeFZWnGL5xJwPe-XhKozAucUXI8A",
-          id: "krLT4WnqKNM",
-          description:
-            "Vídeo contendo o depoimento da aluna Maria, explicando o quanto que o professor Leo ajudou no desenvolvimento do inglês",
-          title: "Depoimento da aluna Maria",
-        },
-        {
-          thumbnail:
-            "https://i.ytimg.com/vi/FpRGCjUaaD8/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAeFZWnGL5xJwPe-XhKozAucUXI8A",
-          id: "FpRGCjUaaD8",
-          description:
-            "Vídeo contendo o depoimento da aluna Joana, explicando o quanto que o professor Leo ajudou no desenvolvimento do inglês",
-          title: "Depoimento da aluna Joana",
-        },
-      ]}
-    />
-  </main>
-</Layout>
+<Layout title="Welcome to Astro." />
