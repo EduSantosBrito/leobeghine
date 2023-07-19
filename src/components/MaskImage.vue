@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Asset, AssetDetails } from "contentful";
-import { contentfulClient } from "../lib/contenful";
+import { contentfulClient } from "../lib/contentful";
 
 const heroEntries = await contentfulClient.getEntries({
   content_type: "flowerImage",
@@ -70,3 +70,4 @@ svg:hover {
   opacity: 0;
 }
 </style>
+../lib/contentful

@@ -1,12 +1,10 @@
 ---
-import VideoSlider from "../components/VideoSlider.vue";
-import MaskImage from "../components/MaskImage.vue";
+import Header from "../components/Header/index.vue";
 import Layout from "../layouts/Layout.astro";
-import { contentfulClient } from "../lib/contenful";
-
-const entries = await contentfulClient.getEntries({
-  content_type: "testimonialVideo",
-});
+import GlobalStyles from "../components/GlobalStyles.astro";
 ---
 
-<Layout title="Welcome to Astro." />
+<Layout title="Aprenda Inglês com Leo | English With Leo">
+  <GlobalStyles />
+  <Header />
+</Layout>

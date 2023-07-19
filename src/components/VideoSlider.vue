@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import type { TestimonialVideo } from "../lib/contenful";
+import type { TestimonialVideo } from "../lib/contentful";
 import type { Entry, EntrySkeletonType } from "contentful";
 
 type Props = {
@@ -221,3 +221,4 @@ video {
   }
 }
 </style>
+../lib/contentful
