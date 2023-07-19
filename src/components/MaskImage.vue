@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { Asset, AssetDetails } from "contentful";
+import type { Asset } from "contentful";
 import { contentfulClient } from "../lib/contentful";
 
 const heroEntries = await contentfulClient.getEntries({
   content_type: "flowerImage",
 });
 const image = heroEntries.items[0].fields.image as Asset;
+const imageUrl = `${image.fields.file?.url as string}?w=67&h=67&f=face&fit=thumb`;
 </script>
 
 <template>
@@ -15,24 +16,16 @@ const image = heroEntries.items[0].fields.image as Asset;
     <svg
       width="0"
       height="0"
-      viewBox="0 0 170 170"
+      viewBox="0 0 67 67"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <clipPath id="clipPath">
-          <path
-            d="M84.4771 42.3451C84.4771 18.9585 103.436 0 126.822 0C150.209 0 169.167 18.9585 169.167 42.3451C169.167 65.7316 150.209 84.6902 126.822 84.6902H84.4771V42.3451Z"
-          />
-          <path
-            d="M84.4771 126.823C84.4771 150.21 103.436 169.168 126.822 169.168C150.209 169.168 169.167 150.21 169.167 126.823C169.167 103.436 150.209 84.4779 126.822 84.4779H84.4771V126.823Z"
-          />
-          <path
-            d="M84.6902 42.3451C84.6902 18.9585 65.7316 0 42.3451 0C18.9585 0 0 18.9585 0 42.3451C0 65.7316 18.9585 84.6902 42.3451 84.6902H84.6902V42.3451Z"
-          />
-          <path
-            d="M84.6902 126.823C84.6902 150.21 65.7316 169.168 42.3451 169.168C18.9585 169.168 0 150.21 0 126.823C0 103.436 18.9585 84.4779 42.3451 84.4779H84.6902V126.823Z"
-          />
+          <path d="M34.0879 16.8666C34.0879 7.65701 41.5537 0.191162 50.7633 0.191162V0.191162C59.9729 0.191162 67.4387 7.65701 67.4387 16.8666V16.8666C67.4387 26.0762 59.9729 33.542 50.7633 33.542H34.0879V16.8666Z" fill="#C267E4"/>
+          <path d="M34.0879 50.1337C34.0879 59.3432 41.5537 66.8091 50.7633 66.8091V66.8091C59.9729 66.8091 67.4387 59.3432 67.4387 50.1337V50.1337C67.4387 40.9241 59.9729 33.4582 50.7633 33.4582H34.0879V50.1337Z" fill="#67E46C"/>
+          <path d="M34.1719 16.8666C34.1719 7.65701 26.706 0.191162 17.4965 0.191162V0.191162C8.28687 0.191162 0.82103 7.65701 0.82103 16.8666V16.8666C0.82103 26.0762 8.28687 33.542 17.4965 33.542H34.1719V16.8666Z" fill="#D94E26"/>
+          <path d="M34.1719 50.1337C34.1719 59.3432 26.706 66.8091 17.4965 66.8091V66.8091C8.28687 66.8091 0.82103 59.3432 0.82103 50.1337V50.1337C0.82103 40.9241 8.28687 33.4582 17.4965 33.4582H34.1719V50.1337Z" fill="#3A85DC"/>
         </clipPath>
       </defs>
     </svg>
@@ -45,8 +38,8 @@ div {
 }
 img {
   object-fit: cover;
-  width: 170px;
-  height: 170px;
+  width: 67px;
+  height: 67px;
   border-radius: 4px;
 
   &.masked-image {
@@ -56,7 +49,7 @@ img {
     }
   }
   &.unmasked-image {
-    width: 170px;
+    width: 67px;
     z-index: 10;
     position: absolute;
     transition: opacity 1s;
@@ -70,4 +63,3 @@ svg:hover {
   opacity: 0;
 }
 </style>
-../lib/contentful

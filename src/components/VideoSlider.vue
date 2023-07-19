@@ -166,7 +166,7 @@ button {
       border-radius: 50%;
     }
     &::after {
-      content: url("/play-icon.svg");
+      content: url("/icons/play-icon.svg");
       display: block;
       opacity: 0;
       position: absolute;
@@ -221,4 +221,3 @@ video {
   }
 }
 </style>
-../lib/contentful
