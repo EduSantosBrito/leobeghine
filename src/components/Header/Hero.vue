@@ -31,7 +31,7 @@ section {
   flex-shrink: 0;
 }
 span {
-  color: var(--primary-red);
+  color: #da2b2b;
   font-family: Noto Sans;
   font-size: 10px;
   font-style: normal;

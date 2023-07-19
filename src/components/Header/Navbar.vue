@@ -4,7 +4,12 @@ import Navigation from "./Navigation.vue";
 <template>
   <nav>
     <a href="/" aria-label="Go to homepage header">
-      <img src="/icons/logo-icon.svg" aria-hidden="true" />
+      <img
+        width="158"
+        height="37"
+        src="/icons/logo-icon.svg"
+        aria-hidden="true"
+      />
     </a>
     <Navigation />
   </nav>

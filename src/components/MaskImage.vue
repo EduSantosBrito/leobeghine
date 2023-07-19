@@ -6,13 +6,13 @@ const heroEntries = await contentfulClient.getEntries({
   content_type: "flowerImage",
 });
 const image = heroEntries.items[0].fields.image as Asset;
-const imageUrl = `${image.fields.file?.url as string}?w=67&h=67&f=face&fit=thumb`;
+const imageUrl = `${image.fields.file?.url as string}?fm=webp&w=170&h=170&f=center`;
 </script>
 
 <template>
   <div>
-    <img class="unmasked-image" :src="(image.fields.file?.url as string)" />
-    <img class="masked-image" :src="(image.fields.file?.url as string)" />
+    <img width="170" height="170" class="unmasked-image" :src="imageUrl" />
+    <img width="170" height="170" class="masked-image" :src="imageUrl" />
     <svg
       width="0"
       height="0"

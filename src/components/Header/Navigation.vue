@@ -1,7 +1,12 @@
 <script setup lang="ts"></script>
 <template>
   <button type="button" aria-label="Open menu">
-    <img src="/icons/hamburger-icon.svg" aria-hidden="true" />
+    <img
+      width="28"
+      height="28"
+      src="/icons/hamburger-icon.svg"
+      aria-hidden="true"
+    />
   </button>
   <ul>
     <li><a href="#">Início</a></li>

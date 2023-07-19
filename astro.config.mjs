@@ -11,4 +11,9 @@ export default defineConfig({
   integrations: [vue(), robotsTxt(), sitemap(), serviceWorker()],
   output: "server",
   adapter: vercel(),
+  define: {
+    PUBLIC_CONTENTFUL_SPACE_ID: process.env.PUBLIC_CONTENTFUL_SPACE_ID,
+    PUBLIC_CONTENTFUL_DELIVERY_TOKEN: process.env.PUBLIC_CONTENTFUL_DELIVERY_TOKEN,
+    PUBLIC_CONTENTFUL_PREVIEW_TOKEN: process.env.PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
+  },
 });
