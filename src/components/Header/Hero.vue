@@ -34,6 +34,7 @@ section {
   gap: 16px;
   flex-shrink: 0;
   padding-inline: 5%;
+  margin-top: 94px;
 
   @media screen and (min-width: 768px) {
     display: grid;

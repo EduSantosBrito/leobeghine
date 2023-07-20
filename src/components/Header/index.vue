@@ -7,8 +7,7 @@
 <style scoped lang="scss">
 header {
   background-color: var(--neutral-white);
-  padding-block: 16px;
-  padding-bottom: 40px;
+  padding-bottom: 56px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

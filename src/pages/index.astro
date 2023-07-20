@@ -11,10 +11,11 @@ import Logo from "../components/Logo.vue";
 <Layout title="Aprenda Inglês com Leo | English With Leo">
   <GlobalStyles />
   <Header>
-    <Navbar>
+    <Navbar client:load>
       <Logo />
       <Navigation client:load />
     </Navbar>
     <Hero />
   </Header>
+  <div style="height: 10000px"></div>
 </Layout>

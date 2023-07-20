@@ -9,7 +9,7 @@ const onTriggerClick = () => {
   open.value = !open.value;
 };
 
-const listener = (event: Event) => {
+const clickOutsideListener = (event: Event) => {
   if (
     event.target !== navRef.value &&
     event.target !== triggerRef.value &&
@@ -22,10 +22,10 @@ const listener = (event: Event) => {
 };
 
 onMounted(() => {
-  window.addEventListener("click", listener);
+  window.addEventListener("click", clickOutsideListener);
 });
 onBeforeUnmount(() => {
-  window.removeEventListener("click", listener);
+  window.removeEventListener("click", clickOutsideListener);
 });
 </script>
 <template>
@@ -99,7 +99,7 @@ nav {
   width: fill-available;
   z-index: 1;
   position: absolute;
-  top: 0px;
+  top: 24px;
   display: grid;
   margin-top: 56px;
   grid-template-columns: 1fr;
@@ -135,6 +135,7 @@ nav {
 
     display: block;
     margin-right: 5%;
+    height: 44px;
   }
 }
 
@@ -150,6 +151,7 @@ ul {
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 32px;
+    margin: 0;
   }
 }
 
