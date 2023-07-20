@@ -1,14 +1,40 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
+const navRef = ref();
+const triggerRef = ref();
 const open = ref<boolean>(false);
 
 const onTriggerClick = () => {
   open.value = !open.value;
 };
+
+const listener = (event: Event) => {
+  if (
+    event.target !== navRef.value &&
+    event.target !== triggerRef.value &&
+    !event.composedPath().includes(navRef.value) &&
+    !event.composedPath().includes(triggerRef.value) &&
+    open.value
+  ) {
+    open.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("click", listener);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("click", listener);
+});
 </script>
 <template>
-  <button type="button" @click="onTriggerClick" aria-label="Open menu">
+  <button
+    ref="triggerRef"
+    type="button"
+    @click="onTriggerClick"
+    aria-label="Open menu"
+  >
     <img
       width="28"
       height="28"
@@ -17,6 +43,7 @@ const onTriggerClick = () => {
     />
   </button>
   <nav
+    ref="navRef"
     :class="open ? 'nav--opened' : 'nav--closed'"
     aria-controls="menu"
     :aria-expanded="open"
