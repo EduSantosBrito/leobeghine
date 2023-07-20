@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import type { TestimonialVideo } from "../lib/contentful";
 import type { Entry, EntrySkeletonType } from "contentful";
 

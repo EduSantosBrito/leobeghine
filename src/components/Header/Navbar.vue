@@ -2,24 +2,19 @@
 import Navigation from "./Navigation.vue";
 </script>
 <template>
-  <nav>
-    <a href="/" aria-label="Go to homepage header">
-      <img
-        width="158"
-        height="37"
-        src="/icons/logo-icon.svg"
-        aria-hidden="true"
-      />
-    </a>
-    <Navigation />
-  </nav>
+  <div>
+    <slot />
+  </div>
 </template>
-<style lang="scss">
-nav {
+<style scoped lang="scss">
+div {
+  background-color: var(--neutral-white);
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 </style>

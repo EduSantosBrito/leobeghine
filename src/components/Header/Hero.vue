@@ -29,6 +29,7 @@ section {
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
+  padding-inline: 5%;
 }
 span {
   color: #da2b2b;
