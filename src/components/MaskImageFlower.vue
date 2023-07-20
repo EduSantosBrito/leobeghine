@@ -9,13 +9,29 @@ const image = heroEntries.items[0].fields.image as Asset;
 const imageUrl = `${
   image.fields.file?.url as string
 }?fm=webp&w=680&h=680&f=center`;
+const imageDescription = heroEntries.items[0].fields.description as string;
 </script>
 
 <template>
   <div>
-    <img width="170" height="170" class="unmasked-image" :src="imageUrl" />
-    <img width="170" height="170" class="masked-image" :src="imageUrl" />
+    <img
+      :aria-label="imageDescription"
+      aria-disabled="true"
+      width="170"
+      height="170"
+      class="unmasked-image"
+      :src="imageUrl"
+    />
+    <img
+      :aria-label="imageDescription"
+      aria-disabled="true"
+      width="170"
+      height="170"
+      class="masked-image"
+      :src="imageUrl"
+    />
     <svg
+      aria-disabled="true"
       width="0"
       height="0"
       viewBox="0 0 67 67"

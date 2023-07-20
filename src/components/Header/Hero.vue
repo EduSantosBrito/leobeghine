@@ -14,15 +14,32 @@ import MaskImageCircle from "../MaskImageCircle.vue";
       <a href="#cursos">Ver cursos</a>
     </div>
     <div class="icons-grid" aria-hidden="true">
-      <img class="icons-grid--heart" src="/icons/heart-icon.svg" />
       <img
+        aria-label="Decorative icon"
+        aria-disabled="true"
+        class="icons-grid--heart"
+        src="/icons/heart-icon.svg"
+      />
+      <img
+        aria-label="Decorative icon"
+        aria-disabled="true"
         class="icons-grid--you-can-do-it"
         src="/icons/you-can-do-it-icon.svg"
       />
       <MaskImageCircle class="icons-grid--circle" />
       <MaskImageFlower class="icons-grid--flower" />
-      <img class="icons-grid--smile" src="/icons/smile-icon.svg" />
-      <img class="icons-grid--arrow" src="/icons/arrow-icon.svg" />
+      <img
+        aria-label="Decorative icon"
+        aria-disabled="true"
+        class="icons-grid--smile"
+        src="/icons/smile-icon.svg"
+      />
+      <img
+        aria-label="Decorative icon"
+        aria-disabled="true"
+        class="icons-grid--arrow"
+        src="/icons/arrow-icon.svg"
+      />
     </div>
   </section>
 </template>
