@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
     @click="onTriggerClick"
   >
     <img
-      alt="Decorative icon"
+      alt="Decorative icon: Hamburger menu"
       width="28"
       height="28"
       src="/icons/hamburger-icon.svg"

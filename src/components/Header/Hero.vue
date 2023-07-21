@@ -15,19 +15,19 @@ import MaskImageCircle from "../MaskImageCircle.vue";
     </div>
     <div class="icons-grid" aria-hidden="true">
       <img
-        alt="Decorative icon"
+        alt="Decorative icon: Using brand to represent a heart"
         aria-disabled="true"
         class="icons-grid--heart"
         src="/icons/heart-icon.svg"
       />
       <img
-        alt="Decorative icon"
+        alt="Decorative icon: Using brand to represent a message balloon in red"
         aria-disabled="true"
         class="icons-grid--you-can-do-it"
         src="/icons/you-can-do-it-icon.svg"
       />
       <img
-        alt="Decorative icon"
+        alt="Decorative icon: Using brand to represent a message ballon in orange"
         aria-disabled="true"
         class="icons-grid--you-can-do-it-orange"
         src="/icons/you-can-do-it-orange-icon.svg"
@@ -35,13 +35,13 @@ import MaskImageCircle from "../MaskImageCircle.vue";
       <MaskImageCircle class="icons-grid--circle" />
       <MaskImageFlower class="icons-grid--flower" />
       <img
-        alt="Decorative icon"
+        alt="Decorative icon: Using brand to represent a smile"
         aria-disabled="true"
         class="icons-grid--smile"
         src="/icons/smile-icon.svg"
       />
       <img
-        alt="Decorative icon"
+        alt="Decorative icon: An arrow"
         aria-disabled="true"
         class="icons-grid--arrow"
         src="/icons/arrow-icon.svg"
@@ -76,7 +76,7 @@ section {
   }
 }
 span {
-  color: #da2b2b;
+  color: var(--high-contrast-red);
   font-family: Noto Sans;
   font-size: 10px;
   font-style: normal;

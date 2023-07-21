@@ -1,7 +1,7 @@
 <template>
   <section>
     <header>
-      <img aria-hidden="true" src="/leo.png" />
+      <img alt="A picture of Leo!" aria-hidden="true" src="/leo.png" />
       <div class="big-numbers">
         <p class="big-numbers--text">
           <span>+5000</span><br />
@@ -26,16 +26,20 @@
       </p>
       <div class="socials">
         <a href="https://www.tiktok.com/@englishwithleob" target="_blank">
-          <img src="/icons/tiktok-icon.svg" />
+          <img alt="Tiktok brand" src="/icons/tiktok-icon.svg" />
         </a>
         <a href="https://www.instagram.com/leobeghine" target="_blank">
-          <img src="/icons/instagram-icon.svg" />
+          <img alt="Instagram brand" src="/icons/instagram-icon.svg" />
         </a>
       </div>
     </main>
     <footer>
       <div class="features">
-        <img src="/icons/classes-icon.svg" />
+        <img
+          alt="Decorative icon: ruler to represent tailor-made classes"
+          aria-hidden="true"
+          src="/icons/classes-icon.svg"
+        />
         <h3 class="features--title">Aulas sob medida</h3>
         <p class="features--description">
           Aulas personalizadas para o inglês básico ao avançado, projetadas para
@@ -43,7 +47,11 @@
         </p>
       </div>
       <div class="features">
-        <img src="/icons/experience-icon.svg" />
+        <img
+          alt="Decorative icon: certificate to represent certified classes"
+          aria-hidden="true"
+          src="/icons/experience-icon.svg"
+        />
         <h3 class="features--title">Excelência Certificada</h3>
         <p class="features--description">
           Como professor de inglês, possuo a certificação CELTA de Cambridge,
@@ -51,7 +59,11 @@
         </p>
       </div>
       <div class="features">
-        <img src="/icons/academy-icon.svg" />
+        <img
+          alt="Decorative icon: graduation hat to represent academic background"
+          aria-hidden="true"
+          src="/icons/academy-icon.svg"
+        />
         <h3 class="features--title">Formação Acadêmica</h3>
         <p class="features--description">
           Com pós-graduação em Letras pela PUC, trago uma base acadêmica robusta
@@ -195,7 +207,7 @@ header {
   width: 182px;
   height: 55px;
   border-radius: 80px 0 80px 80px;
-  background-color: var(--primary-red);
+  background-color: var(--high-contrast-red);
   @media screen and (min-width: 768px) {
     border-radius: 0 80px 80px 80px;
     left: initial;
