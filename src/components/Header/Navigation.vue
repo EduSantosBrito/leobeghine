@@ -32,8 +32,8 @@ onBeforeUnmount(() => {
   <button
     ref="triggerRef"
     type="button"
-    @click="onTriggerClick"
     aria-label="Open menu"
+    @click="onTriggerClick"
   >
     <img
       alt="Decorative icon"

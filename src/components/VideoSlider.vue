@@ -72,16 +72,16 @@ const props = defineProps<Props>();
   <section
     :aria-label="`Lista de ${props.items.length} vídeos com depoimentos dos alunos`"
   >
-    <template v-for="(item, index) in props.items">
+    <template v-for="(item, index) in props.items" :key="index">
       <div
         :class="`item ${getClass(index)} ${
           focused === index && activeVideo !== index ? 'focused' : ''
         }`"
       >
         <button
+          type="button"
           :class="activeVideo === index ? (playVideo ? 'playing' : 'idle') : ''"
           @click="() => onClick(index, activeVideo)"
-          type="button"
           @focusin="focused = index"
           @focusout="focused = index"
           @keydown="(event) => onKeydown(event)"
@@ -93,9 +93,9 @@ const props = defineProps<Props>();
           />
         </button>
         <video
+          ref="videoTag"
           :aria-label="(item.fields as TestimonialVideo).description"
           :class="activeVideo === index && playVideo ? 'playing' : 'idle'"
-          ref="videoTag"
         >
           <source
             :src="((item.fields as TestimonialVideo).video.fields.file?.url as string)"

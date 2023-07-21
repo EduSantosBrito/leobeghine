@@ -1,9 +1,18 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
   extends: [
     "plugin:astro/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:vue/vue3-recommended",
+    "@vue/eslint-config-typescript",
   ],
+  rules: {
+    "vue/html-self-closing": ["off"],
+    "vue/multi-word-component-names": ["off"],
+    "vue/max-attributes-per-line": ["off"],
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.
@@ -16,7 +25,6 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-      rules: {},
     },
   ],
 };
