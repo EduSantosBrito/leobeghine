@@ -5,7 +5,7 @@
       height="37"
       src="/icons/logo-icon.svg"
       aria-hidden="true"
-      aria-label="Leo beghine brand"
+      alt="Leo beghine brand"
     />
   </a>
 </template>

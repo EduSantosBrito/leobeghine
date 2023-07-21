@@ -1,10 +1,23 @@
 ---
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
-interface Props {
-  title: string;
-}
+const title = "Aprenda Inglês com Leo | Professor de inglês";
+const description =
+  "A melhor forma de aprender inglês, com o melhor professor! Cursos de inglês online para os níveis básico, intermediário ou avançado de maneira eficaz e fácil.";
 
-const { title } = Astro.props;
+const keywords = [
+  "aprender inglês online",
+  "curso de inglês",
+  "curso de inglês online",
+  "aulas de inglês online",
+  "professor de inglês",
+  "professor de inglês online",
+  "inglês básico",
+  "inglês intermediário",
+  "inglês avançado",
+  "inglês fluente",
+  "dominar o inglês",
+];
+const keywordContent = keywords.join(", ");
 ---
 
 <!DOCTYPE html>
@@ -13,50 +26,79 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="canonical" href="https://www.englishwithleo.com" />
-    <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans:wght@400;500;600&display=swap" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans:wght@400;500;600&display=swap"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Course",
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": ["online"],
+          "instructor": {
+            "@type": "Person",
+            "jobTitle": "Professor de inglês",
+            "name": "Leo Beghine"
+          },
+          "offers": {
+            "@type": "Offer",
+            "offeredBy": "Hotmart",
+            "price": "97.30"
+          }
+        },
+        "name": "Inglês com taylor swift"
+      }
+    </script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://englishwithleo.com/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://englishwithleo.com/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://englishwithleo.com/favicon-16x16.png"
+    />
+    <link rel="manifest" href="https://englishwithleo.com/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="https://englishwithleo.com/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="title" content="Aprenda Inglês com Leo | English With Leo" />
-    <meta
-      name="description"
-      content="Descubra aulas de inglês online eficazes. Oferecemos cursos de inglês para todos os níveis, do básico ao avançado. Comece a aprender e a aprimorar suas habilidades em inglês hoje!"
-    />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://englishwithleo.com" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta
-      property="og:title"
-      content="Aprenda Inglês com Leo | English With Leo"
+      property="og:image"
+      content="https://englishwithleo.com/meta-tags.png"
     />
-    <meta
-      property="og:description"
-      content="Descubra aulas de inglês online eficazes. Oferecemos cursos de inglês para todos os níveis, do básico ao avançado. Comece a aprender e a aprimorar suas habilidades em inglês hoje!"
-    />
-    <meta property="og:image" content="/meta-tags.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://englishwithleo.com" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <meta
-      property="twitter:title"
-      content="Aprenda Inglês com Leo | English With Leo"
+      property="twitter:image"
+      content="https://englishwithleo.com/meta-tags.png"
     />
-    <meta
-      property="twitter:description"
-      content="Descubra aulas de inglês online eficazes. Oferecemos cursos de inglês para todos os níveis, do básico ao avançado. Comece a aprender e a aprimorar suas habilidades em inglês hoje!"
-    />
-    <meta property="twitter:image" content="/meta-tags.png" />
-    <meta
-      name="keywords"
-      content="Aprender Inglês Online, Curso de Inglês, Aulas de Inglês Online, Inglês para Brasileiros, Professor de Inglês, Inglês Básico, Inglês Avançado, Inglês Fluente, Estudar Inglês, Curso de Inglês Online"
-    />
+    <meta name="keywords" content={keywordContent} />
     <title>{title}</title>
   </head>
   <body>

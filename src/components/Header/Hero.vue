@@ -5,8 +5,8 @@ import MaskImageCircle from "../MaskImageCircle.vue";
 <template>
   <section>
     <div class="info-group">
-      <span>Curso e mentoria online</span>
-      <h1>Apaixone-se pelo inglês</h1>
+      <span>Cursos e mentoria de inglês online</span>
+      <h1>Apaixone-se pelo Inglês!</h1>
       <p>
         Descubra um novo caminho para o aprendizado de inglês, onde a fluência
         se une à diversão.
@@ -15,27 +15,33 @@ import MaskImageCircle from "../MaskImageCircle.vue";
     </div>
     <div class="icons-grid" aria-hidden="true">
       <img
-        aria-label="Decorative icon"
+        alt="Decorative icon"
         aria-disabled="true"
         class="icons-grid--heart"
         src="/icons/heart-icon.svg"
       />
       <img
-        aria-label="Decorative icon"
+        alt="Decorative icon"
         aria-disabled="true"
         class="icons-grid--you-can-do-it"
         src="/icons/you-can-do-it-icon.svg"
       />
+      <img
+        alt="Decorative icon"
+        aria-disabled="true"
+        class="icons-grid--you-can-do-it-orange"
+        src="/icons/you-can-do-it-orange-icon.svg"
+      />
       <MaskImageCircle class="icons-grid--circle" />
       <MaskImageFlower class="icons-grid--flower" />
       <img
-        aria-label="Decorative icon"
+        alt="Decorative icon"
         aria-disabled="true"
         class="icons-grid--smile"
         src="/icons/smile-icon.svg"
       />
       <img
-        aria-label="Decorative icon"
+        alt="Decorative icon"
         aria-disabled="true"
         class="icons-grid--arrow"
         src="/icons/arrow-icon.svg"
@@ -105,6 +111,7 @@ p {
   font-weight: 400;
   line-height: 129.9%; /* 18.186px */
   letter-spacing: 1.12px;
+  max-width: 492px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
@@ -172,7 +179,30 @@ a {
     height: 170px;
   }
 }
+.icons-grid--you-can-do-it-orange {
+  transition: opacity 300ms ease-in-out;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+  grid-area: you-can-do-it;
+  width: 67px;
+  height: 67px;
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+  @media screen and (min-width: 1366px) {
+    width: 170px;
+    height: 170px;
+  }
+}
 .icons-grid--you-can-do-it {
+  transition: opacity 300ms ease-in-out;
+  opacity: 1;
+  &:hover {
+    opacity: 0;
+  }
   grid-area: you-can-do-it;
   width: 67px;
   height: 67px;

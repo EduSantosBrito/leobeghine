@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
     aria-label="Open menu"
   >
     <img
-      aria-label="Decorative icon"
+      alt="Decorative icon"
       width="28"
       height="28"
       src="/icons/hamburger-icon.svg"

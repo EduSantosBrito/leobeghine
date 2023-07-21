@@ -9,16 +9,20 @@ import Hero from "../components/Header/Hero.vue";
 import Logo from "../components/Logo.vue";
 ---
 
-<Layout title="Aprenda Inglês com Leo | English With Leo">
+<Layout>
   <GlobalStyles />
-  <Container variant="neutral-white">
-    <Navbar client:load>
-      <Logo />
-      <Navigation client:load />
-    </Navbar>
-    <Header>
-      <Hero />
-    </Header>
-  </Container>
-  <div style="height: 10000px"></div>
+  <header>
+    <Container variant="neutral-white">
+      <Navbar client:load>
+        <Logo />
+        <Navigation client:load />
+      </Navbar>
+      <Header>
+        <Hero />
+      </Header>
+    </Container>
+  </header>
+  <main>
+    <Container variant="white" />
+  </main>
 </Layout>

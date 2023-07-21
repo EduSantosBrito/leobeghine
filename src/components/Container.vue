@@ -6,9 +6,9 @@ type Props = {
 const props = defineProps<Props>();
 </script>
 <template>
-  <div :class="`container ${props.variant}`">
+  <section :class="`container ${props.variant}`">
     <slot />
-  </div>
+  </section>
 </template>
 <style lang="scss">
 .container {

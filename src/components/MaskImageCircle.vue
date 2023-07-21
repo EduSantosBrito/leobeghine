@@ -15,7 +15,7 @@ const imageDescription = heroEntries.items[0].fields.description as string;
 <template>
   <div>
     <img
-      :aria-label="imageDescription"
+      :alt="imageDescription"
       aria-disabled="true"
       width="170"
       height="170"
@@ -23,7 +23,7 @@ const imageDescription = heroEntries.items[0].fields.description as string;
       :src="imageUrl"
     />
     <img
-      :aria-label="imageDescription"
+      :alt="imageDescription"
       aria-disabled="true"
       width="170"
       height="170"
