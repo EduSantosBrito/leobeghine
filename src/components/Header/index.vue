@@ -6,11 +6,12 @@
 </template>
 <style scoped lang="scss">
 header {
-  background-color: var(--neutral-white);
   padding-bottom: 56px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  margin-inline: auto;
+  width: min(100%, 1440px);
 }
 </style>

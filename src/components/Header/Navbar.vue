@@ -20,23 +20,36 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
-  <div :class="withBorder ? 'with-border' : ''">
-    <slot />
+  <div :class="`fixed-container ${withBorder ? 'with-border' : ''}`">
+    <div class="internal-navbar">
+      <slot />
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
-div {
-  background-color: var(--neutral-white);
+.internal-navbar {
   position: fixed;
   z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding-bottom: 24px;
   padding-top: 16px;
+  width: min(100%, 1440px);
+}
+
+.fixed-container {
+  position: fixed;
+  width: 100%;
+  height: 84px;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  transition: background-color 300ms ease-in-out;
+  background-color: var(--neutral-white);
   &.with-border {
-    border-bottom: 1px solid #e7e7e7;
+    background-color: white;
+    filter: drop-shadow(4px 6px 10px rgba(11, 14, 37, 0.06));
   }
 }
 </style>

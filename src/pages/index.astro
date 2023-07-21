@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header/index.vue";
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.vue";
 import GlobalStyles from "../components/GlobalStyles.astro";
 import Navigation from "../components/Header/Navigation.vue";
 import Navbar from "../components/Header/Navbar.vue";
@@ -10,12 +11,14 @@ import Logo from "../components/Logo.vue";
 
 <Layout title="Aprenda Inglês com Leo | English With Leo">
   <GlobalStyles />
-  <Header>
+  <Container variant="neutral-white">
     <Navbar client:load>
       <Logo />
       <Navigation client:load />
     </Navbar>
-    <Hero />
-  </Header>
+    <Header>
+      <Hero />
+    </Header>
+  </Container>
   <div style="height: 10000px"></div>
 </Layout>
