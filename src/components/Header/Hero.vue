@@ -56,7 +56,7 @@ section {
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
-  padding-inline: 5%;
+  padding-inline: 8%;
   margin-top: 94px;
 
   @media screen and (min-width: 768px) {
@@ -139,6 +139,12 @@ a {
   &:hover {
     color: var(--neutral-white);
     background-color: var(--neutral-dark);
+  }
+
+  &:focus {
+    color: var(--neutral-white);
+    background-color: var(--neutral-dark);
+    outline: none;
   }
 
   @media screen and (min-width: 768px) {

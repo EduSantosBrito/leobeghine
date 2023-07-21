@@ -4,6 +4,7 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 const navRef = ref();
 const triggerRef = ref();
 const open = ref<boolean>(false);
+const isMobile = ref<boolean>(false);
 
 const onTriggerClick = () => {
   open.value = !open.value;
@@ -22,6 +23,9 @@ const clickOutsideListener = (event: Event) => {
 };
 
 onMounted(() => {
+  if (screen.width < 768) {
+    isMobile.value = true;
+  }
   window.addEventListener("click", clickOutsideListener);
 });
 onBeforeUnmount(() => {
@@ -45,22 +49,27 @@ onBeforeUnmount(() => {
   </button>
   <nav
     ref="navRef"
-    :class="open ? 'nav--opened' : 'nav--closed'"
     aria-controls="menu"
+    :aria-hidden="isMobile && !open ? 'true' : 'false'"
+    :class="open ? 'nav--opened' : 'nav--closed'"
     :aria-expanded="open"
   >
     <ul id="menu">
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Sobre mim</a></li>
-      <li><a href="#">Cursos</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Início</a></li>
+      <li>
+        <a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Sobre mim</a>
+      </li>
+      <li><a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Cursos</a></li>
+      <li>
+        <a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Contato</a>
+      </li>
     </ul>
   </nav>
 </template>
 <style scoped lang="scss">
 button {
-  margin-right: 5%;
-  z-index: 5;
+  margin-right: 8%;
+  z-index: 25;
   appearance: none;
   background-color: transparent;
   border: none;
@@ -90,11 +99,22 @@ a {
   min-height: 44px;
   display: flex;
   align-items: center;
+
+  &:focus {
+    border-radius: 4px;
+    outline: 1px solid var(--neutral-white);
+    outline-offset: 4px;
+  }
+
   @media screen and (min-width: 768px) {
     color: var(--neutral-dark);
+    &:focus {
+      outline: 1px solid var(--neutral-dark);
+    }
   }
 }
 nav {
+  width: 100%;
   width: -webkit-fill-available;
   width: -moz-fill-available;
   width: fill-available;
@@ -135,7 +155,7 @@ nav {
     }
 
     display: block;
-    margin-right: 5%;
+    margin-right: 8%;
     height: 44px;
   }
 }

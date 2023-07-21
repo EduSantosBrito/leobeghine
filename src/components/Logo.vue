@@ -11,7 +11,7 @@
 </template>
 <style scoped lang="scss">
 a {
-  margin-left: 5%;
+  margin-left: 8%;
   min-width: 44px;
   min-height: 44px;
   border-radius: 4px;

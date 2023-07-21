@@ -29,7 +29,7 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .internal-navbar {
   position: fixed;
-  z-index: 5;
+  z-index: 25;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
   height: 84px;
   display: flex;
   justify-content: center;
-  z-index: 5;
+  z-index: 25;
   transition: background-color 300ms ease-in-out;
   background-color: var(--neutral-white);
   &.with-border {
