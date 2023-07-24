@@ -8,6 +8,12 @@ import Navbar from "../components/Header/Navbar.vue";
 import Hero from "../components/Header/Hero.vue";
 import Logo from "../components/Logo.vue";
 import About from "../components/About/index.vue";
+import Courses from "../components/Courses/index.vue";
+import CourseCard from "../components/CourseCard.vue";
+import type { Course } from "../components/CourseCard.vue";
+import { contentfulClient } from "../lib/contentful";
+
+const courses = await contentfulClient.getEntries({ content_type: "course" });
 ---
 
 <Layout>
@@ -18,14 +24,27 @@ import About from "../components/About/index.vue";
         <Logo />
         <Navigation client:load />
       </Navbar>
-      <Header>
-        <Hero />
+      <Header >
+        <Hero client:load />
       </Header>
     </Container>
   </header>
   <main>
     <Container variant="white">
       <About />
+    </Container>
+    <Container variant="neutral-white">
+      <Courses>
+        {
+          courses.items?.map((course) => (
+            <CourseCard
+              client:visible
+              data={course.fields as Course}
+              id={course.sys.id}
+            />
+          ))
+        }
+      </Courses>
     </Container>
   </main>
 </Layout>

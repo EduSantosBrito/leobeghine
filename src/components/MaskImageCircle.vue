@@ -6,9 +6,11 @@ const heroEntries = await contentfulClient.getEntries({
   content_type: "roundedImage",
 });
 const image = heroEntries.items[0].fields.image as Asset;
-const imageUrl = `${
-  image.fields.file?.url as string
-}?fm=webp&w=680&h=680&f=center`;
+const baseImageUrl = image.fields.file?.url as string;
+const mobileUrl = `${baseImageUrl}?fm=webp&w=134&h=134&f=center`;
+const tabletUrl = `${baseImageUrl}?fm=webp&w=200&h=200&f=center`;
+const desktopUrl = `${baseImageUrl}?fm=webp&w=340&h=340&f=center`;
+const srcSet = `${mobileUrl} 360w, ${tabletUrl} 768w, ${desktopUrl} 1366w`;
 const imageDescription = heroEntries.items[0].fields.description as string;
 </script>
 
@@ -20,7 +22,8 @@ const imageDescription = heroEntries.items[0].fields.description as string;
       width="170"
       height="170"
       class="unmasked-image"
-      :src="imageUrl"
+      :src="mobileUrl"
+      :srcset="srcSet"
     />
     <img
       :alt="imageDescription"
@@ -28,7 +31,8 @@ const imageDescription = heroEntries.items[0].fields.description as string;
       width="170"
       height="170"
       class="masked-image"
-      :src="imageUrl"
+      :src="mobileUrl"
+      :srcset="srcSet"
     />
     <svg
       aria-disabled="true"

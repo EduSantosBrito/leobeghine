@@ -1,7 +1,13 @@
 <template>
   <section>
     <header>
-      <img alt="A picture of Leo!" aria-hidden="true" src="/leo.png" />
+      <img
+        alt="A picture of Leo!"
+        width="200"
+        height="247"
+        aria-hidden="true"
+        src="/leo.webp"
+      />
       <div class="big-numbers">
         <p class="big-numbers--text">
           <span>+5000</span><br />
@@ -26,16 +32,28 @@
       </p>
       <div class="socials">
         <a href="https://www.tiktok.com/@englishwithleob" target="_blank">
-          <img alt="Tiktok brand" src="/icons/tiktok-icon.svg" />
+          <img
+            width="24"
+            height="25"
+            alt="Tiktok brand"
+            src="/icons/tiktok-icon.svg"
+          />
         </a>
         <a href="https://www.instagram.com/leobeghine" target="_blank">
-          <img alt="Instagram brand" src="/icons/instagram-icon.svg" />
+          <img
+            width="24"
+            height="25"
+            alt="Instagram brand"
+            src="/icons/instagram-icon.svg"
+          />
         </a>
       </div>
     </main>
     <footer>
       <div class="features">
         <img
+          width="48"
+          height="48"
           alt="Decorative icon: ruler to represent tailor-made classes"
           aria-hidden="true"
           src="/icons/classes-icon.svg"
@@ -48,6 +66,8 @@
       </div>
       <div class="features">
         <img
+          width="48"
+          height="48"
           alt="Decorative icon: certificate to represent certified classes"
           aria-hidden="true"
           src="/icons/experience-icon.svg"
@@ -60,6 +80,8 @@
       </div>
       <div class="features">
         <img
+          width="48"
+          height="48"
           alt="Decorative icon: graduation hat to represent academic background"
           aria-hidden="true"
           src="/icons/academy-icon.svg"

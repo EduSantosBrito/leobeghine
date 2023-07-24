@@ -55,13 +55,41 @@ onBeforeUnmount(() => {
     :aria-expanded="open"
   >
     <ul id="menu">
-      <li><a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Início</a></li>
       <li>
-        <a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Sobre mim</a>
+        <a
+          :class="isMobile && !open ? 'menu-hidden' : ''"
+          :tabindex="isMobile && !open ? '-1' : '0'"
+          href="#"
+        >
+          Início
+        </a>
       </li>
-      <li><a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Cursos</a></li>
       <li>
-        <a :tabindex="isMobile && !open ? '-1' : '0'" href="#">Contato</a>
+        <a
+          :class="isMobile && !open ? 'menu-hidden' : ''"
+          :tabindex="isMobile && !open ? '-1' : '0'"
+          href="#"
+        >
+          Sobre mim
+        </a>
+      </li>
+      <li>
+        <a
+          :class="isMobile && !open ? 'menu-hidden' : ''"
+          :tabindex="isMobile && !open ? '-1' : '0'"
+          href="#"
+        >
+          Cursos
+        </a>
+      </li>
+      <li>
+        <a
+          :class="isMobile && !open ? 'menu-hidden' : ''"
+          :tabindex="isMobile && !open ? '-1' : '0'"
+          href="#"
+        >
+          Contato
+        </a>
       </li>
     </ul>
   </nav>
@@ -183,5 +211,9 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.menu-hidden {
+  visibility: hidden;
 }
 </style>

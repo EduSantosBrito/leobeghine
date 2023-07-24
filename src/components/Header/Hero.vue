@@ -134,7 +134,7 @@ a {
   border: 2px solid var(--neutral-dark);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   text-decoration: none;
-  transition: all 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 
   &:hover {
     color: var(--neutral-white);
