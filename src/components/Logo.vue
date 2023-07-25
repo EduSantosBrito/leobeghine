@@ -15,7 +15,7 @@ a {
   min-width: 44px;
   min-height: 44px;
   border-radius: 4px;
-  &:focus {
+  &:focus-visible {
     outline: 1px solid var(--neutral-dark);
     outline-offset: 4px;
   }

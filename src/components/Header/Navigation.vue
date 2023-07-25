@@ -109,7 +109,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
 
-  &:focus {
+  &:focus-visible {
     outline: 1px solid var(--neutral-dark);
   }
 
@@ -128,7 +128,7 @@ a {
   display: flex;
   align-items: center;
 
-  &:focus {
+  &:focus-visible {
     border-radius: 4px;
     outline: 1px solid var(--neutral-white);
     outline-offset: 4px;
@@ -136,7 +136,7 @@ a {
 
   @media screen and (min-width: 768px) {
     color: var(--neutral-dark);
-    &:focus {
+    &:focus-visible {
       outline: 1px solid var(--neutral-dark);
     }
   }

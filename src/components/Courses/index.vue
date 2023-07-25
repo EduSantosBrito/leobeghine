@@ -30,7 +30,6 @@ header {
   @media screen and (min-width: 1366px) {
     gap: 32px;
   }
-  padding-bottom: 64px;
 }
 span {
   color: var(--high-contrast-red);
@@ -59,6 +58,7 @@ p {
   font-weight: 400;
   line-height: 142.9%; /* 22.864px */
   letter-spacing: 1.28px;
+  max-width: 500px;
 }
 header {
   margin-inline: 8%;

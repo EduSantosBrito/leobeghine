@@ -141,7 +141,7 @@ button {
   width: 100%;
   cursor: pointer;
 
-  &:focus {
+  &:focus-visible {
     outline: 1px solid #5748cf;
     outline-offset: 4px;
     border-radius: 10px;

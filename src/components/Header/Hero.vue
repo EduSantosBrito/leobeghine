@@ -141,7 +141,7 @@ a {
     background-color: var(--neutral-dark);
   }
 
-  &:focus {
+  &:focus-visible {
     color: var(--neutral-white);
     background-color: var(--neutral-dark);
     outline: none;
