@@ -209,6 +209,7 @@ header {
     width: 480px;
     & > img {
       width: 383px;
+      height: 475px;
     }
     &::before {
       width: 479px;

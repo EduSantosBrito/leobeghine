@@ -26,9 +26,10 @@ type Props = {
 
 const isMobile = ref<boolean>(false);
 const props = defineProps<Props>();
-const imageUrl = `${
-  props.data.image.fields.file?.url as string
-}?fm=webp&w=300&h=290`;
+const baseUrl = props.data.image.fields.file?.url as string;
+const mobileUrl = `${baseUrl}?fm=webp&w=300&h=290`;
+const desktopUrl = `${baseUrl}?fm=webp&w=500&h=483`;
+const srcSet = `${mobileUrl} 360w, ${desktopUrl} 1366w`;
 const imageTitle = props.data.image.fields.title as string;
 const cost = new Intl.NumberFormat("pt-BR", {
   style: "currency",
@@ -66,7 +67,12 @@ const handleHoverOut = () => {
 <template>
   <article @mouseenter="handleHoverIn" @mouseleave="handleHoverOut">
     <header :style="{ backgroundColor: props.data.color.value }">
-      <img :alt="imageTitle" class="course-image" :src="imageUrl" />
+      <img
+        :alt="imageTitle"
+        class="course-image"
+        :src="mobileUrl"
+        :srcset="srcSet"
+      />
     </header>
     <main
       :id="`content-${props.id}`"
@@ -153,6 +159,10 @@ article {
   justify-content: flex-end;
   align-items: center;
   outline: none;
+  @media screen and (min-width: 1366px) {
+    width: 383px;
+    height: 452px;
+  }
 }
 header {
   position: absolute;
@@ -162,12 +172,20 @@ header {
   z-index: 0;
   border-radius: 18px 18px 10px 10px;
   box-shadow: 12px 0px 30px -3px rgba(0, 0, 0, 0.1);
+  @media screen and (min-width: 1366px) {
+    height: 400px;
+  }
 }
 
 .course-image {
   position: absolute;
   z-index: 1;
   top: -100px;
+  width: 300px;
+  @media screen and (min-width: 1366px) {
+    width: 500px;
+    top: -90px;
+  }
 }
 
 main {
@@ -186,7 +204,13 @@ main {
   gap: 8px;
   transition: height 300ms ease-in-out;
   &.opened {
-    height: 400px;
+    height: 375px;
+  }
+  @media screen and (min-width: 1366px) {
+    height: 160px;
+    &.opened {
+      height: 300px;
+    }
   }
 }
 
@@ -292,6 +316,10 @@ hr {
   display: grid;
   grid-template-areas: "cost ." "link link";
   row-gap: 16px;
+  @media screen and (min-width: 1366px) {
+    grid-template-areas: "cost link";
+    align-items: center;
+  }
 }
 
 .course-cost {

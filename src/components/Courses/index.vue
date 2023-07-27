@@ -20,6 +20,12 @@ section {
   padding-top: 80px;
   width: min(100%, 1440px);
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: 1366px) {
+    gap: 100px;
+  }
 }
 header {
   display: flex;
@@ -68,9 +74,11 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 16px;
+  justify-items: center;
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    justify-items: initial;
   }
   @media screen and (min-width: 1366px) {
     grid-template-columns: repeat(3, 1fr);
