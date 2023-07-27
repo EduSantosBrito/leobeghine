@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Asset } from "contentful";
 import { hexToRGB } from "../utils/hexToRGB";
-import { onMounted, ref } from "vue";
+import { Teleport, onMounted, ref } from "vue";
 
 type Color = {
   value: string;

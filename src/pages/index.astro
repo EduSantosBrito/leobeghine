@@ -73,13 +73,15 @@ const features = [
       !!courses.total && (
         <Container variant="neutral-white">
           <Courses variant={courseVariant}>
-            {courses.items?.map((course) => (
-              <CourseCard
-                client:visible
-                data={course.fields as Course}
-                id={course.sys.id}
-              />
-            ))}
+            {courses.items?.map((course) => {
+              return (
+                <CourseCard
+                  client:visible
+                  data={course.fields as Course}
+                  id={course.sys.id}
+                />
+              );
+            })}
           </Courses>
         </Container>
       )
@@ -141,3 +143,29 @@ const features = [
     <div class="footer-copyright">© 2023<br />Brito.top</div>
   </Footer>
 </Layout>
+<script define:vars={{ courses }}>
+  courses.items?.map((course) => {
+    const script = document.createElement("script");
+    script.setAttribute("type", "application/ld+json");
+    script.innerText = JSON.stringify({
+      "@context": "https://schema.org/",
+      "@type": "Course",
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: ["online"],
+        instructor: {
+          "@type": "Person",
+          jobTitle: "Professor de inglês",
+          name: "Leo Beghine",
+        },
+        offers: {
+          "@type": "Offer",
+          offeredBy: "Hotmart",
+          price: String(course.fields.cost),
+        },
+      },
+      name: course.fields.title,
+    });
+    document.head.appendChild(script);
+  });
+</script>
