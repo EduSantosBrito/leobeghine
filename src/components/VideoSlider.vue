@@ -98,7 +98,7 @@ const props = defineProps<Props>();
         >
           <img
             tabindex="-1"
-            :src="((item.fields as TestimonialVideo).thumbnail.fields.file?.url as string)"
+            :src="(`${(item.fields as TestimonialVideo).thumbnail.fields.file?.url as string}?fm=webp`)"
             :alt="`Iniciar vídeo ${(item.fields as TestimonialVideo).title}`"
           />
         </button>

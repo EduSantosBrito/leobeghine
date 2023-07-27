@@ -17,6 +17,7 @@ import Testimonials from "../components/Testimonials/index.vue";
 import type { Course } from "../components/CourseCard.vue";
 import { contentfulClient } from "../lib/contentful";
 import VideoSlider from "../components/VideoSlider.vue";
+import Footer from "../components/Footer/index.vue";
 
 const courses = await contentfulClient.getEntries({ content_type: "course" });
 const videos = await contentfulClient.getEntries({
@@ -104,4 +105,35 @@ const features = [
       )
     }
   </main>
+  <Footer>
+    <div class="footer-logo">
+      <Logo />
+    </div>
+    <div class="footer-description">
+      <p>
+        Cursos de inglês online para os níveis básico, intermediário ou avançado
+        de maneira eficaz e fácil.
+      </p>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com/@englishwithleob" target="_blank">
+        <img
+          width="24"
+          height="25"
+          alt="Tiktok brand"
+          src="/icons/tiktok-gray-icon.svg"
+        />
+      </a>
+      <a href="https://www.instagram.com/leobeghine" target="_blank">
+        <img
+          width="24"
+          height="25"
+          alt="Instagram brand"
+          src="/icons/instagram-gray-icon.svg"
+        />
+      </a>
+    </div>
+    <div class="footer-copyright">© 2023<br />Brito.top</div>
+  </Footer>
 </Layout>

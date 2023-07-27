@@ -230,7 +230,7 @@ header {
   width: 182px;
   height: 55px;
   border-radius: 80px 0 80px 80px;
-  background-color: var(--high-contrast-red);
+  background-color: var(--primary-red);
   @media screen and (min-width: 768px) {
     border-radius: 0 80px 80px 80px;
     left: initial;
