@@ -13,10 +13,15 @@ import Courses from "../components/Courses/index.vue";
 import CourseCard from "../components/CourseCard.vue";
 import FeatureCard from "../components/FeatureCard.vue";
 import Cta from "../components/Cta/index.vue";
+import Testimonials from "../components/Testimonials/index.vue";
 import type { Course } from "../components/CourseCard.vue";
 import { contentfulClient } from "../lib/contentful";
+import VideoSlider from "../components/VideoSlider.vue";
 
 const courses = await contentfulClient.getEntries({ content_type: "course" });
+const videos = await contentfulClient.getEntries({
+  content_type: "testimonialVideo",
+});
 const features = [
   {
     url: "/icons/feature-1-icon.svg",
@@ -59,19 +64,21 @@ const features = [
     <Container variant="white">
       <About />
     </Container>
-    <Container variant="neutral-white">
-      <Courses>
-        {
-          courses.items?.map((course) => (
-            <CourseCard
-              client:visible
-              data={course.fields as Course}
-              id={course.sys.id}
-            />
-          ))
-        }
-      </Courses>
-    </Container>
+    {
+      !!courses.total && (
+        <Container variant="neutral-white">
+          <Courses>
+            {courses.items?.map((course) => (
+              <CourseCard
+                client:visible
+                data={course.fields as Course}
+                id={course.sys.id}
+              />
+            ))}
+          </Courses>
+        </Container>
+      )
+    }
     <Container variant="white">
       <Features>
         {
@@ -87,5 +94,14 @@ const features = [
       </Features>
     </Container>
     <Cta />
+    {
+      !!videos.total && (
+        <Container variant="white">
+          <Testimonials>
+            <VideoSlider client:visible items={videos.items} />
+          </Testimonials>
+        </Container>
+      )
+    }
   </main>
 </Layout>

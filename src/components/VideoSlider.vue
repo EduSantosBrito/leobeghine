@@ -42,6 +42,16 @@ const onClick = (index: number, activeIndex: number) => {
     }
   }, 300);
 };
+const onVideoClick = (index: number) => {
+  const currentVideo = videoTag.value?.[index];
+  if (currentVideo) {
+    if (currentVideo.paused) {
+      currentVideo.play();
+    } else {
+      currentVideo.pause();
+    }
+  }
+};
 
 const onKeydown = (event: KeyboardEvent) => {
   if (event.code === "Escape") {
@@ -96,6 +106,7 @@ const props = defineProps<Props>();
           ref="videoTag"
           :aria-label="(item.fields as TestimonialVideo).description"
           :class="activeVideo === index && playVideo ? 'playing' : 'idle'"
+          @click="() => onVideoClick(index)"
         >
           <source
             :src="((item.fields as TestimonialVideo).video.fields.file?.url as string)"
@@ -128,6 +139,10 @@ const props = defineProps<Props>();
 section {
   display: flex;
   gap: 16px;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 button {
@@ -189,14 +204,25 @@ button {
   position: relative;
   width: 286px;
   height: 508px;
-  transition: width 300ms ease-in-out, filter 300ms ease-in-out;
+  transition: width 300ms ease-in-out, height 300ms ease-in-out,
+    filter 300ms ease-in-out;
   &.inactive {
-    width: 90px;
+    width: 286px;
+    height: 75px;
+    @media screen and (min-width: 768px) {
+      width: 90px;
+      height: 508px;
+    }
     filter: grayscale(95%);
 
     &:hover,
     &.focused {
-      width: 150px;
+      width: 286px;
+      height: 130px;
+      @media screen and (min-width: 768px) {
+        width: 150px;
+        height: 508px;
+      }
       filter: none;
     }
   }
