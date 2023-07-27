@@ -1,6 +1,14 @@
+<script setup lang="ts">
+type Props = {
+  variant: "single" | "multiple";
+};
+
+const props = defineProps<Props>();
+</script>
+
 <template>
-  <section id="cursos">
-    <header>
+  <section id="cursos" :data-variant="props.variant">
+    <header :data-variant="props.variant">
       <span>Cursos de inglês online</span>
       <h2>Aprenda inglês com o que gosta</h2>
       <p>
@@ -23,8 +31,14 @@ section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  &[data-variant="single"] {
+    flex-direction: column;
+  }
   @media screen and (min-width: 1366px) {
     gap: 100px;
+    &[data-variant="single"] {
+      flex-direction: row;
+    }
   }
 }
 header {
@@ -36,6 +50,9 @@ header {
   margin-inline: 8%;
   @media screen and (min-width: 1366px) {
     gap: 32px;
+    &[data-variant="single"] {
+      justify-content: center;
+    }
   }
 }
 span {

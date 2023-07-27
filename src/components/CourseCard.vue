@@ -190,7 +190,7 @@ header {
 
 main {
   position: relative;
-  height: 180px;
+  height: 200px;
   background-color: white;
   border-radius: 10px;
   z-index: 10;
@@ -204,7 +204,7 @@ main {
   gap: 8px;
   transition: height 300ms ease-in-out;
   &.opened {
-    height: 375px;
+    height: 400px;
   }
   @media screen and (min-width: 1366px) {
     height: 160px;

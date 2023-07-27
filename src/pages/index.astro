@@ -20,6 +20,10 @@ import VideoSlider from "../components/VideoSlider.vue";
 import Footer from "../components/Footer/index.vue";
 
 const courses = await contentfulClient.getEntries({ content_type: "course" });
+let courseVariant: "single" | "multiple" = "multiple";
+if (courses.total === 1) {
+  courseVariant = "single";
+}
 const videos = await contentfulClient.getEntries({
   content_type: "testimonialVideo",
 });
@@ -68,7 +72,7 @@ const features = [
     {
       !!courses.total && (
         <Container variant="neutral-white">
-          <Courses>
+          <Courses variant={courseVariant}>
             {courses.items?.map((course) => (
               <CourseCard
                 client:visible
