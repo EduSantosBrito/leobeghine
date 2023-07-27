@@ -1,12 +1,12 @@
 <template>
-  <section id="cursos">
+  <section>
     <header>
-      <span>Cursos de inglês online</span>
-      <h2>Aprenda inglês com o que gosta</h2>
+      <span>mentoria de inglês online</span>
+      <h2>Aprenda com foco em suas necessidades</h2>
       <p>
-        Descubra uma forma divertida e envolvente de aprender inglês através das
-        suas séries e músicas pop preferidas. <br />Aulas gravadas para assistir
-        onde e quando quiser.
+        Invista no seu futuro, avance na sua carreira, alcance sonhos que antes
+        eram impossíveis. Aulas de inglês online individuais e personalizadas
+        por aluno pelo Google meets.
       </p>
     </header>
     <main>
@@ -18,13 +18,14 @@
 <style scoped lang="scss">
 section {
   padding-top: 80px;
+  padding-bottom: 140px;
   width: min(100%, 1440px);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
   @media screen and (min-width: 1366px) {
-    gap: 100px;
+    flex-direction: row;
   }
 }
 header {
@@ -56,6 +57,7 @@ h2 {
   font-weight: 600;
   line-height: 114.9%; /* 32.172px */
   letter-spacing: 0.7px;
+  max-width: 359px;
 }
 p {
   color: var(--neutral-dark);
@@ -68,19 +70,15 @@ p {
   max-width: 500px;
 }
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
   margin-inline: 8%;
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 16px;
-  justify-items: center;
-  @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    justify-items: initial;
-  }
+  margin-top: 64px;
   @media screen and (min-width: 1366px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    margin: 0;
   }
 }
 </style>

@@ -8,12 +8,37 @@ import Navbar from "../components/Header/Navbar.vue";
 import Hero from "../components/Header/Hero.vue";
 import Logo from "../components/Logo.vue";
 import About from "../components/About/index.vue";
+import Features from "../components/Features/index.vue";
 import Courses from "../components/Courses/index.vue";
 import CourseCard from "../components/CourseCard.vue";
+import FeatureCard from "../components/FeatureCard.vue";
 import type { Course } from "../components/CourseCard.vue";
 import { contentfulClient } from "../lib/contentful";
 
 const courses = await contentfulClient.getEntries({ content_type: "course" });
+const features = [
+  {
+    url: "/icons/feature-1-icon.svg",
+    alt: "Decorative Icon: flower icon",
+    title: "Conteúdo personalizado",
+    description:
+      "Todos os conteúdos apresentados na mentoria se adaptam a sua necessidade.",
+  },
+  {
+    url: "/icons/feature-2-icon.svg",
+    alt: "Decorative Icon: heart icon",
+    title: "Material incluso",
+    description:
+      "Materiais sem custos adicionais. Aprenda inglês de forma rápida e sem surpresas no fim do mês.",
+  },
+  {
+    url: "/icons/feature-3-icon.svg",
+    alt: "Decorative Icon: smile icon",
+    title: "Qualidade do presencial",
+    description:
+      "Aulas online com a mesma qualidade e resultados do ensino presencial.",
+  },
+];
 ---
 
 <Layout>
@@ -24,7 +49,7 @@ const courses = await contentfulClient.getEntries({ content_type: "course" });
         <Logo />
         <Navigation client:load />
       </Navbar>
-      <Header >
+      <Header>
         <Hero client:load />
       </Header>
     </Container>
@@ -45,6 +70,20 @@ const courses = await contentfulClient.getEntries({ content_type: "course" });
           ))
         }
       </Courses>
+    </Container>
+    <Container variant="white">
+      <Features>
+        {
+          features.map((feature) => (
+            <FeatureCard
+              title={feature.title}
+              description={feature.description}
+            >
+              <img class="feature-img" src={feature.url} alt={feature.alt} />
+            </FeatureCard>
+          ))
+        }
+      </Features>
     </Container>
   </main>
 </Layout>
