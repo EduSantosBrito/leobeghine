@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
         <a
           :class="isMobile && !open ? 'menu-hidden' : ''"
           :tabindex="isMobile && !open ? '-1' : '0'"
-          href="#"
+          href="/"
         >
           Início
         </a>
@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
         <a
           :class="isMobile && !open ? 'menu-hidden' : ''"
           :tabindex="isMobile && !open ? '-1' : '0'"
-          href="#"
+          href="#sobre"
         >
           Sobre mim
         </a>
@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
         <a
           :class="isMobile && !open ? 'menu-hidden' : ''"
           :tabindex="isMobile && !open ? '-1' : '0'"
-          href="#"
+          href="#cursos"
         >
           Cursos
         </a>
@@ -86,7 +86,7 @@ onBeforeUnmount(() => {
         <a
           :class="isMobile && !open ? 'menu-hidden' : ''"
           :tabindex="isMobile && !open ? '-1' : '0'"
-          href="#"
+          href="#cta"
         >
           Contato
         </a>

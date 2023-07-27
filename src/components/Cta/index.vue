@@ -1,11 +1,13 @@
 <template>
-  <section>
+  <section id="cta">
     <h2>Agende já sua mentoria!</h2>
     <p>
       Acelere seu progresso no inglês e conquiste fluência e confiança no
       idioma.
     </p>
-    <a href="https://instagram.com">Entrar em contato</a>
+    <a href="https://api.whatsapp.com/send?phone=5532991935101" target="_blank">
+      Entrar em contato
+    </a>
   </section>
 </template>
 <style scoped lang="scss">

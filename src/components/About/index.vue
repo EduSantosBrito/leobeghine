@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="sobre">
     <header>
       <img
         alt="A picture of Leo!"
