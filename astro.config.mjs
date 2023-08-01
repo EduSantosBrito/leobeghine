@@ -7,7 +7,7 @@ import serviceWorker from "astrojs-service-worker";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://leobeghine.vercel.app/",
+  site: "https://www.englishwithleo.com/",
   integrations: [vue(), robotsTxt(), sitemap(), serviceWorker()],
   output: "server",
   adapter: vercel(),
